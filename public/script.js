@@ -1,7 +1,7 @@
 window.onload = function () {
 	socket = null;
 	nome_usuario = "Usuario";
-	url_server = "localhost:80"//"169.57.153.116:8080"//"dominio.com.br"
+	url_server = "localhost:8080"//"169.57.153.116:8080"
 
 	let head = document.getElementsByTagName('head')[0]
 	let body = document.getElementsByTagName('body')[0]
@@ -24,7 +24,7 @@ window.onload = function () {
 
 	var link = document.createElement('link');
 	link.setAttribute("rel", "stylesheet");
-	link.setAttribute("href", "http://" + url_server + "/public/styles.css");
+	link.setAttribute("href", "http://" + url_server + "/styles.css");
 	head.appendChild(link);
 
 
@@ -171,7 +171,7 @@ function EnviaMsgInicio() {
 function appendMessage(message) {
 
 	$('#chat_typing').remove();
-
+debugger
 	if (message.message) {
 		var msg = message.message.replace(new RegExp('\r?\n', 'g'), '<br>');
 
