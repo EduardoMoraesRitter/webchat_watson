@@ -16,9 +16,12 @@ io = require('socket.io').listen(connected);
 
 console.log("SERVIDO LIGADO EM");
 
-app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/public'));
 
-app.use("", (req, res)=>res.json("ok"));
+app.use("", (req, res)=>{
+    console.log("aa")
+    res.send("ok")
+});
 
 
 
