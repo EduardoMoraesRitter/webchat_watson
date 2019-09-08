@@ -1,0 +1,22 @@
+{
+  "name": "edu",
+  "version": "1.0.0",
+  "description": "socket io com watson assistent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardoMoraesRitter/webchat_watson.git"
+  },
+  "author": "Eduardo Ritter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduardoMoraesRitter/webchat_watson/issues"
+  },
+  "homepage": "https://github.com/EduardoMoraesRitter/webchat_watson#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
