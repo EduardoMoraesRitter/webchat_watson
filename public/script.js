@@ -1,7 +1,7 @@
 window.onload = function () {
 	socket = null;
 	nome_usuario = "Usuario";
-	url_server = "localhost:8080"//"169.57.153.116:8080"
+	url_server = "https://hmlchat.herokuapp.com"//"localhost:8080"//"169.57.153.116:8080"
 
 	let head = document.getElementsByTagName('head')[0]
 	let body = document.getElementsByTagName('body')[0]
