@@ -24,7 +24,7 @@ window.onload = function () {
 
 	var link = document.createElement('link');
 	link.setAttribute("rel", "stylesheet");
-	link.setAttribute("href", "http://" + url_server + "/styles.css");
+	link.setAttribute("href", url_server + "/styles.css");
 	head.appendChild(link);
 
 
@@ -92,7 +92,7 @@ function createSocket() {
 	}
 
 	if (socket == null) {
-		socket = io.connect('ws://' + url_server, { transports: ['websocket'], upgrade: false, query: 'name=' + chatSession });
+		socket = io.connect(url_server, { transports: ['websocket'], upgrade: false, query: 'name=' + chatSession });
 		
 		socket.on('connect', function () {
 			console.log('Connected');
