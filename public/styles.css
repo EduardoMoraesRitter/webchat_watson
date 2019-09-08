@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@font-face {
+  font-family: 'Circular' !important;
+  src: url('fonts/CircularStd-Medium.otf');
+}
+
+.sdk_webchatbot_message {
+  max-height: 475px;
+  height: 100%;
+  padding: 0 20px;
+  overflow: auto
+}
+
+.botao_chat {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: #008136;
+  background-color: #f2f2f2;
+  font-size: 50px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  position: fixed;
+  bottom: 10px;
+  right: 11px;
+}
+
+.botao_chat:focus {
+  outline: none;
+}
+
+.botao_chat  img{
+  width: 100%;
+  height: 100%;
+}
+
+.botao_chat .material-icons {
+  font-size: 46px;
+  line-height: 1.5;
+}
+
+.fecha_chat{
+  position: absolute;
+  right: 11px;
+  top: 12px;
+  color:white;
+  float:right;
+  cursor:pointer;
+}
+
+.fecha_chat .material-icons {
+  font-size: 21px;
+}
+
+.chat-popup {
+  display: none;
+  position: fixed;
+  width: 100%;
+  bottom: 100px;
+  right: 15px;
+  border: 1px groove #d4d4d457;
+  background-color: white;
+  z-index: 9999;
+  max-width: 364px;
+  height: 100%;
+  max-height: 560px;
+  border-radius: 15px;
+  box-shadow: 0 1px 10px rgba(167, 167, 167, 0.28);
+  font-family: 'Circular','Roboto', sans-serif !important;
+  overflow: hidden;
+}
+
+.form-container {
+max-width: 300px;
+padding: 10px;
+background-color: white;
+}
+
+.form-container textarea {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+border: none;
+background: #f1f1f1;
+resize: none;
+min-height: 200px;
+}
+
+.form-container textarea:focus {
+background-color: #ddd;
+outline: none;
+}
+
+.form-container .btn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+border: none;
+cursor: pointer;
+width: 100%;
+margin-bottom:10px;
+opacity: 0.8;
+}
+
+.form-container .cancel {
+background-color: red;
+}
+
+.form-container .btn:hover, .botao_chat:hover {
+opacity: 1;
+}
+
+/* *********** baloes de msg *********** */
+
+.balao {
+background-color: #f2f2f2;
+color: black;
+border-radius: 5px;
+box-shadow: 0 0 2px #c0c0c0;
+display: inline-block;
+padding: 10px 15px;
+position: relative;
+vertical-align: top;
+}
+
+.balao::before {
+background-color: #f2f2f2;
+content: "\00a0";
+display: block;
+height: 16px;
+position: absolute;
+top: 45%;
+transform: rotate(20deg) skew(-35deg);
+-moz-transform: rotate(20deg) skew(-35deg);
+-ms-transform: rotate(20deg) skew(-35deg);
+-o-transform: rotate(20deg) skew(-35deg);
+-webkit-transform: rotate(20deg) skew(-35deg);
+width: 17px;
+}
+
+.atendente {
+  float: left;
+  margin: 10px 20px 5px 20px;
+  color: black;
+  clear: both;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.atendente::before {
+  box-shadow: -1px 1px 0px 0px rgba(178, 178, 178, 0.3);
+  left: -7px;
+}
+
+.cliente {
+  background-color: #008136;
+  color: #ffffff;
+  float: right;
+  margin: 5px 20px 5px 45px;
+  clear: both;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.cliente::before {
+  background-color: #008136;
+  box-shadow: 1px -1px 0px 0px rgba(178, 178, 178, 0.4);
+  right: -7px;
+}
+
+/* ********************************************** */
+
+.chat_titulo{
+  background-color: #008136;
+  width: 100%;
+  height: 45px;
+  position: static;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.but_speech{
+float:right;
+color: gray;
+margin-right: 5px;	
+cursor:pointer;
+}
+
+.chat_button {
+background-color: #069;
+color: white;
+width: 100%;
+line-height: 30px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+margin-top: 10px;
+margin-bottom: 10px;
+cursor:pointer;
+}
+
+.chat_button:hover {
+  background-color: #66a3c1;
+}
+
+.chat_image{
+  width: 100%;	
+}
+
+.chat_typing{
+  width: 15%;	
+  float: right;
+  margin: 5px 20px 5px 45px;
+  clear: both;
+}
+
+.sdk_webchatbot_controle {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: auto;
+  overflow: hidden;
+  padding: 0;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  border-top: 1px solid rgba(0, 0, 0, .10);
+}
+
+.sdk_webchatbot_controle .box {
+  background: #ffffff;
+  height: 36px;
+  border-radius: 30px;
+  padding: 0; 
+}
+
+.sdk_webchatbot_text {
+  float: left;
+  width: 80%;
+  height: 36px;
+  font-size: 14px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 8px;
+  position: relative;
+  left: 0;
+  outline: none;
+  border: none;
+  border: 0px solid #ddd !important;
+  padding: 0 20px !important;
+}
+
+.sdk_webchatbot_anexo {
+  font-size: 25px;
+  position: absolute;
+  right: 5px;
+  width: 25px;
+  top: 5px;
+  height: 25px;
+  color: #272727;
+  cursor: pointer;
+}
+
+.sdk_webchatbot_anexo i {
+  position: absolute;
+}
+
+.sdk_webchatbot_anexo_input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.sdk_webchatbot_envio {
+  font-size: 20px;
+  position: absolute;
+  right: 35px;
+  width: 25px;
+  top: 5px;
+  height: 25px;
+  color: #272727;
+}
+.sdk_webchatbot_envio i {
+  position: absolute;
+}
+.sdk_webchatbot_envia_input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.cliente{
+  font-size: 1.0rem;
+  word-break: break-word;
+}
+.atendente {
+  font-size: 1.0rem;
+  word-break: break-word;
+}
+.chat_time{
+  font-size: 10px;
+  text-align: right;
+}
+
+@media screen and (max-device-width: 812px)  {
+   
+  div#chatbotDialog {
+      max-height: 100%;
+      height: 100%;
+      max-width: 100%;
+      width: 100%;
+      padding: 0 !important;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+  }
+
+  .chat-popup {
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .cliente {
+    word-break: break-all;
+  }
+  .titulo {
+    height: 45px;
+    position: relative;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .sdk_webchatbot_message {
+    height: 90% ;
+    max-height: 87%;
+    padding-bottom: 0 5px;
+  }
+  .divFechaChat {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    color: white;
+    float: right;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+  }
+  #divFechaChat .material-icons {
+    color: #ffffff;
+    font-size: 32px;
+  }
+  div#corpo {
+    position: relative;
+    height: 100%;
+  }
+  .sdk_webchatbot_controle {
+    position: fixed;
+  }
+  .sdk_webchatbot_controle .box {
+    height: 50px;
+  }
+}
