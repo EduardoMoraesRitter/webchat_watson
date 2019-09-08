@@ -3,7 +3,6 @@ app = express()
 request = require('request')
 http = require('http')
 const bodyParser = require('body-parser')
-router = express.Router()
 
 app.enable('trust proxy')
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -25,35 +24,19 @@ app.get('/sdkwebchat',
 
 app.use('', express.static(__dirname + '/public'));
 
-
-// //let messages = []
 connections = []
 
-// router.post('/webchatSendAnswer/', (req, res) => {
-//     res.send()
-
-//     connections.forEach(a => {
-//         if (a.chatSession == req.body.userID) {
-//             io.to(a.socketId).emit("receivedMessage", req.body)
-//         }
-//     })
-// }
-// )
-
-
-// //Conecta no Socket.IO
+//Conecta no Socket.IO
 io.on('connection', socket => {
 
     console.log("Socket conectado - ", socket.id)
 
     var cookie = socket.handshake.query['name']
     if (cookie != undefined) {
-
         connections.unshift({
             socketId: socket.id,
             chatSession: cookie
         })
-
     }
 
     //Quando uma mensagem for enviada pelo cliente
@@ -67,45 +50,19 @@ io.on('connection', socket => {
         socket.emit('receivedMessage', data)
 
         var message = data.message
-        var context = ""
+        var context = socket.context ? socket.context : ""
 
         detectIntent(message, context, watsonConfig)
             .then(responseWatson => {
                 console.log(responseWatson)
-                
+                socket.context = responseWatson.context
                 socket.emit("receivedMessage", {
                     messageType:"Text",
                     message:responseWatson.messages[0].text,
                     origin: "bot"
                 })
-
-                // connections.forEach(a => {
-                //     if (a.chatSession == req.body.userID) {
-                //         io.to(a.socketId).emit("receivedMessage", req.body)
-                //     }
-                // })
             })
             .catch(err => console.error(err))
-
-        // const objRequest = {
-        //     url: "http://localhost:80/webchat",
-        //     method: 'POST',
-        //     json: true,
-        //     headers: {
-        //         'Content-Type': 'application/json charset=utf-8'
-        //     },
-        //     body: data
-        // }
-        // request(objRequest,
-        //     (error, response) => {
-        //         if (error) {
-        //             console.error("ERRO - callAPIApplication ", error)
-        //         } else if (response.statusCode != 200) {
-        //             console.warn("warning - callAPIApplication ", response.body)
-        //         } else {
-        //             console.log("sucesso")
-        //         }
-        //     })
     })
 
     socket.on('disconnect', data => {
@@ -143,7 +100,6 @@ function detectIntent(message, context, watsonConfig) {
                     _body.context = context
                 }
                 const objRequest = {
-                    //url: "https://gateway-wdc.watsonplatform.net/assistant/api/v1/workspaces/d5c3d6f3-4745-4023-a49e-94b6ca65cc6e/message?version=2019-02-28&nodes_visited_details=true",
                     url: watsonConfig.url + watsonConfig.workspace + '/message?version=2019-02-28&nodes_visited_details=true',
                     method: 'POST',
                     json: true,
@@ -172,7 +128,7 @@ function detectIntent(message, context, watsonConfig) {
                             intent: response.body.intents.length > 0 ? response.body.intents[0].intent : "",
                             entity: response.body.entities.length > 0 ? response.body.entities : "",
                             messages: response.body.output.generic,//FormatTextMessage(response.body),
-                            contexts: response.body.context
+                            context: response.body.context
                         })
                     }
                 })
@@ -209,10 +165,8 @@ function token(watsonConfig) {
                     resolve(watsonConfig.token)
                 }
             })
-
         } else {
             resolve(watsonConfig.token)
         }
-
     })
 }
