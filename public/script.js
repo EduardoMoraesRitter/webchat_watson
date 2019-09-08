@@ -77,8 +77,8 @@ function appendSDKWindow() {
 
 		"<input type='text' id='chat_msg' name='chat_msg' placeholder='Digite sua menssagem' class='sdk_webchatbot_text' autocomplete='off' disabled> " +
 
-		"<div class='sdk_webchatbot_anexo'><i class='fa fa-paperclip' ></i><input type='file' id='fileUpload' class='sdk_webchatbot_anexo_input'></div>" +
-		// "<div class='sdk_webchatbot_envio'><i class='fa fa-paper-plane-o' ></i><input type='button' id='enviarMsg' class='sdk_webchatbot_envia_input'></div>"+
+		//"<div class='sdk_webchatbot_anexo'><i class='fa fa-paperclip' ></i><input type='file' id='fileUpload' class='sdk_webchatbot_anexo_input'></div>" +
+		"<div class='sdk_webchatbot_envio'><i class='fa fa-paper-plane-o' ></i><input type='button' id='enviarMsg' class='sdk_webchatbot_envia_input'></div>"+
 
 		"</div></div></div>");
 }
