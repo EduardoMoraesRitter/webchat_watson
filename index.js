@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 //QUANDO API DE TERCEIRO NAO TEM HTTPS CONFIGURADO CORRETAMENTE, E PRECISA IGNORAR
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-connected = app.listen(8080);
+connected = app.listen(process.env.PORT || 8080);
 io = require('socket.io').listen(connected);
 
 console.log("SERVIDO LIGADO EM");
