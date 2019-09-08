@@ -82,8 +82,8 @@ io.on('connection', socket => {
 
 var watsonConfig = {
     url: "https://gateway-wdc.watsonplatform.net/assistant/api/v1/workspaces/",
-    workspace: "d5c3d6f3-4745-4023-a49e-94b6ca65cc6e",
-    apikey: "YnD7ZLe86d7IGhJeSv59fAGWMQn_7HEh4zhjf2P8Np2k",
+    workspace: "d64253df-97c6-481f-9fab-71dd3031ce10",
+    apikey: "IPrHGkSAkkppuglBE1FjQhU8QT8x17sX_DrWIdOCU0C",
     token: "",
     expirationDate: ""
 }
