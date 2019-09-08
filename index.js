@@ -1,4 +1,5 @@
-app = require('express')();
+express = require('express');
+app = express();
 request = require('request');
 http = require('http');
 const bodyParser = require('body-parser');
@@ -10,14 +11,16 @@ app.use(bodyParser.json());
 //QUANDO API DE TERCEIRO NAO TEM HTTPS CONFIGURADO CORRETAMENTE, E PRECISA IGNORAR
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-// connected = app.listen(8080);
-// io = require('socket.io').listen(connected);
+connected = app.listen(8080);
+io = require('socket.io').listen(connected);
 
-// console.log("SERVIDO LIGADO EM");
+console.log("SERVIDO LIGADO EM");
 
 app.use(express.static(__dirname + '/public'));
 
 app.use("", (req, res)=>res.json("ok"));
+
+
 
 // //let messages = [];
 // connections = [];
