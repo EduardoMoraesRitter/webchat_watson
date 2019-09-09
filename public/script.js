@@ -183,7 +183,7 @@ function appendMessage(message) {
 			setTimeout(function () {
 				$('#chat_msg').prop("disabled", false);
 				$('#enviarMsg').prop("disabled", false);
-			}, 4500);
+			}, 3000);
 			return;
 		}
 
