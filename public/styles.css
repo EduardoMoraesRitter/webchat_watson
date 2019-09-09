@@ -165,7 +165,7 @@ width: 17px;
 }
 
 .cliente::before {
-  background-color: #008136;
+  background-color: #ffc709;
   box-shadow: 1px -1px 0px 0px rgba(178, 178, 178, 0.4);
   right: -7px;
 }
