@@ -62,7 +62,14 @@ io.on('connection', socket => {
                     origin: "bot"
                 })
             })
-            .catch(err => console.error(err))
+            .catch(err => {
+            console.error(err)
+            socket.emit("receivedMessage", {
+                    messageType:"Text",
+                    message:err,
+                    origin: "bot"
+                })
+        })
     })
 
     socket.on('disconnect', data => {
