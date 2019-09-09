@@ -55,12 +55,16 @@ io.on('connection', socket => {
         detectIntent(message, context, watsonConfig)
             .then(responseWatson => {
                 console.log(responseWatson)
+            
                 socket.context = responseWatson.context
-                socket.emit("receivedMessage", {
-                    messageType:"Text",
-                    message:responseWatson.messages[0].text,
-                    origin: "bot"
-                })
+            
+                responseWatson.messages.forEach(element => {
+                    socket.emit("receivedMessage", {
+                        messageType:"Text",
+                        message:element.text,
+                        origin: "bot"
+                    })
+                })               
             })
             .catch(err => {
             console.error(err)
