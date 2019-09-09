@@ -66,7 +66,8 @@ io.on('connection', socket => {
             console.error(err)
             socket.emit("receivedMessage", {
                     messageType:"Text",
-                    message:err,
+                    message:"desculpe erro no servidor",
+                    err:err,
                     origin: "bot"
                 })
         })
@@ -90,7 +91,7 @@ io.on('connection', socket => {
 var watsonConfig = {
     url: "https://gateway-wdc.watsonplatform.net/assistant/api/v1/workspaces/",
     workspace: "d64253df-97c6-481f-9fab-71dd3031ce10",
-    apikey: "lPrHGkSAkkppuglBE1FjQhU8QT8x17sX_iDrWIdOCU0C",
+    apikey: "IjAVojuuJb6ZrLgi5IcvE9URIyq9y0m-ba-HK3Nb_lKf",
     token: "",
     expirationDate: ""
 }
