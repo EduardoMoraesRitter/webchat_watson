@@ -27,7 +27,6 @@ window.onload = function () {
 	link.setAttribute("href", url_server + "/styles.css");
 	head.appendChild(link);
 
-
 	//TODO:voltar aqui remover o jquery
 	setTimeout(function () {
 		appendSDKWindow();
@@ -64,7 +63,6 @@ function botao_texto(mensagem) {
 }
 
 function appendSDKWindow() {
-
 	$(document.body).append("<button class='botao_chat' id='botao_chat' onclick='openDialog()'> <i class='fa fa-commenting'></i> </button>");
 	//$(document.body).append("<div class='botao_chat' id='botao_chat' onclick='openDialog()' style='display:none;'> <img src='https://dominio.com.br/public/images/icone.png'> </div>");
 	$(document.body).append("<div class='chat-popup' id='chatbotDialog' style='display:none;'></div>");
@@ -74,12 +72,10 @@ function appendSDKWindow() {
 	$('#chatbotDialog').append("<div id='corpo'>" +
 		"<div id='div_chat_messages' class='sdk_webchatbot_message'></div>" +
 		"<div class='sdk_webchatbot_controle'><div class='box'>" +
-
 		"<input type='text' id='chat_msg' name='chat_msg' placeholder='Digite sua menssagem' class='sdk_webchatbot_text' autocomplete='off' disabled> " +
 
 		//"<div class='sdk_webchatbot_anexo'><i class='fa fa-paperclip' ></i><input type='file' id='fileUpload' class='sdk_webchatbot_anexo_input'></div>" +
 		"<div class='sdk_webchatbot_envio'><i class='fa fa-paper-plane-o' ></i><input type='button' id='enviarMsg' class='sdk_webchatbot_envia_input'></div>"+
-
 		"</div></div></div>");
 }
 
@@ -93,7 +89,7 @@ function createSocket() {
 
 	if (socket == null) {
 		socket = io.connect(url_server, { transports: ['websocket'], upgrade: false, query: 'name=' + chatSession });
-		
+
 		socket.on('connect', function () {
 			console.log('Connected');
 		});
