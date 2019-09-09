@@ -16,7 +16,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  color: #008136;
+  color: #ffc709;
   background-color: #f2f2f2;
   font-size: 50px;
   border: none;
@@ -155,7 +155,7 @@ width: 17px;
 }
 
 .cliente {
-  background-color: #008136;
+  background-color: #ffc709;
   color: #ffffff;
   float: right;
   margin: 5px 20px 5px 45px;
@@ -173,7 +173,7 @@ width: 17px;
 /* ********************************************** */
 
 .chat_titulo{
-  background-color: #008136;
+  background-color: #ffc709;
   width: 100%;
   height: 45px;
   position: static;
